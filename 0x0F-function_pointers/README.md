@@ -56,6 +56,7 @@ Write a function that executes a function given as a parameter on each element o
 - and action is a pointer to the function you need to use
 
 [2-int_index](2-int_index.c)
+
 ```
 Write a function that searches for an integer.
 ```
@@ -67,6 +68,7 @@ Write a function that searches for an integer.
 - If size <= 0, return -1
 
 [3-calc](3-main.c)
+
 ```
 Write a program that performs simple operations.
 ```
@@ -88,9 +90,11 @@ Write a program that performs simple operations.
 * This task requires that you create four different files.
 
 - [calc.h](3-calc.h)
+
     This file should contain all the function prototypes and data structures used by the program.
 
 - [op_functions](3-op_functions.c)
+
     This file should contain the 5 following functions (not more):
 
         - op_add: returns the sum of a and b. 
@@ -105,6 +109,7 @@ Write a program that performs simple operations.
         Prototype: int op_mod(int a, int b);
 
 - [get_op_func](3-get_op_func.c)
+
     This file should contain the function that selects the correct function to perform the operation asked by the user. You’re not allowed to declare any other function.
 
         - Prototype: int (\*get_op_func(char \*s))(int, int);
@@ -119,6 +124,7 @@ Write a program that performs simple operations.
         - If s does not match any of the 5 expected operators (+, -, *, /, %), return NULL
 
 - [main](3-main.c)
+
     This file should contain your main function only.
 
         - You are not allowed to code any other function than main in this file
@@ -129,6 +135,7 @@ Write a program that performs simple operations.
 
 
 [100-main_opcodes](100-main_opcodes.c)
+
 ```
 Write a program that prints the opcodes of its own main function.
 ```
