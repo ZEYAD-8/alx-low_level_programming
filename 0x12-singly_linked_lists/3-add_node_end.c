@@ -1,4 +1,5 @@
 #include "lists.h"
+
 list_t *add_node_end(list_t **head, const char *str)
 {
 list_t *new, *current;
@@ -13,10 +14,8 @@ if (new->str == NULL)
 free(new);
 return (NULL);
 }
-
 new->len = strlen(str);
 new->next = NULL;
-
 if (*head == NULL)
 {
 *head = new;
