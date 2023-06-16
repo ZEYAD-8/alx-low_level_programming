@@ -19,7 +19,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	p = malloc(new_size);
 	if (p == NULL)
 		return (NULL);
-	strcpy(p, ptr);
+	if (new_size < old_size)
+		strncpy(p, ptr, new_size);
+	else
+		strcpy(p, ptr);
 	free(ptr);
 	return (p);
 }
