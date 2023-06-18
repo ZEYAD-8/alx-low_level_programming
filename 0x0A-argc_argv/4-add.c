@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, sum, all_digit;
+	int i, j, sum;
 
 	if (argc == 1)
 	{
@@ -16,21 +16,19 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	for (i = 1, sum = 0, all_digit = 1; i < argc; i++)
+	for (i = 1, sum = 0; i < argc; i++)
 	{
-		if (*argv[i] >= '0' && *argv[i] <= '9')
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			sum += atoi(argv[i]);
-			continue;
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		all_digit = 0;
+		sum += atoi(argv[i]);
 	}
-	if (all_digit)
-	{
-		printf("%d\n", sum);
-		return (0);
-	}
-	printf("Error\n");
-	return (1);
+	printf("%d\n", sum);
+	return (0);
 }
 
