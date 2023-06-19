@@ -17,4 +17,3 @@ int _abs(int r)
 		return (r * -1);
 	}
 }
-
