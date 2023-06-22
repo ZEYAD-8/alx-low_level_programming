@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 /**
- * types - structure.
+ * struct types - structure.
  *
  * @c: charachter
  * @f: pointer
