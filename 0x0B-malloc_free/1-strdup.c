@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 /**
  * _strdup - entry point
  * @str: string
@@ -12,7 +13,7 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	new = malloc(stlen(str) + 1);
+	new = malloc(strlen(str) + 1);
 	if (new == NULL)
 		return (NULL);
 	strcpy(new, str);
