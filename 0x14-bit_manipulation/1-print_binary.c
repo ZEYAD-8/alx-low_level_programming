@@ -1,4 +1,17 @@
 #include "main.h"
+#include <unistd.h>
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno us set appropriately
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
 /**
  * print_binary - converts an unsigned long int to binary representation
@@ -22,9 +35,9 @@ void print_binary(unsigned long int n)
 		if ((n & current_bit) || !leading)
 		{
 			if (n & current_bit)
-				printf("%d", 1);
+				_putchar('1');
 			else
-				printf("%d", 0);
+				_putchar('0');
 			leading = 0;
 		}
 		current_bit >>= 1;
