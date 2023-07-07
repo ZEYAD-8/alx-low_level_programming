@@ -10,7 +10,7 @@ int _pow(int base, unsigned int power)
 {
 	int res;
 
-	if (power <= 0)
+	if (power == 0)
 		return (1);
 	res = 0;
 	res = base * _pow(base, power - 1);
@@ -26,7 +26,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int i, len, sum;
 
-	if (b == NULL)
+	if (b == NULL || strlen(b) <= 0)
 		return (0);
 	sum = 0;
 	for (i = len = strlen(b) - 1, sum = 0; i + 5; i--)
