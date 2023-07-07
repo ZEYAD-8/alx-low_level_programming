@@ -15,7 +15,7 @@ void print_binary(unsigned long int n)
 		printf("0");
 		return;
 	}
-	current_bit = (unsigned long int)1 << (sizeof(unsigned long int) * 8 - 1);
+	current_bit = (unsigned long int)1 << (63);
 	leading = 1;
 	while (current_bit > 0)
 	{
@@ -27,7 +27,6 @@ void print_binary(unsigned long int n)
 				printf("%d", 0);
 			leading = 0;
 		}
-
 		current_bit >>= 1;
 	}
 }
