@@ -15,14 +15,16 @@ void print_binary(unsigned long int n)
 		printf("0");
 		return;
 	}
-
 	current_bit = 1UL << (sizeof(unsigned long int) * 8 - 1);
 	leading = 1;
 	while (current_bit > 0)
 	{
 		if ((n & current_bit) || !leading)
 		{
-			printf("%d", (n & current_bit) ? 1 : 0);
+			if (n & current_bit)
+				printf("%d", 1);
+			else
+				printf("%d", 0);
 			leading = 0;
 		}
 
