@@ -21,15 +21,4 @@ int open_file(const char *filename, int flags, mode_t mode);
 void close_file(int fd);
 void print_error_and_exit(const char *message, const char *arg, int exit_code);
 
-void check_elf(unsigned char *e_ident);
-void print_magic(unsigned char *e_ident);
-void print_class(unsigned char *e_ident);
-void print_data(unsigned char *e_ident);
-void print_version(unsigned char *e_ident);
-void print_abi(unsigned char *e_ident);
-void print_osabi(unsigned char *e_ident);
-void print_type(unsigned int e_type, unsigned char *e_ident);
-void print_entry(unsigned long int e_entry, unsigned char *e_ident);
-void close_elf(int elf);
-
 #endif
