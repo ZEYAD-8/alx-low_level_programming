@@ -12,7 +12,7 @@ int delete_dnodeint_at_index(dlistint_t **h, unsigned int idx)
 
 	if (h == NULL || *h == NULL)
 	{
-		return (0);
+		return (-1);
 	}
 	tmp = *h;
 	if (idx == 0)
@@ -44,5 +44,5 @@ int delete_dnodeint_at_index(dlistint_t **h, unsigned int idx)
 		tmp = tmp->next;
 		count++;
 	}
-	return (0);
+	return (-1);
 }
