@@ -1,7 +1,3 @@
-/*
- * File: 2-key_index.c
-*/
-
 #include "hash_tables.h"
 
 /**
