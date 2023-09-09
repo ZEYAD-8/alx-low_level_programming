@@ -22,10 +22,12 @@ hash_table_t *hash_table_create(unsigned long int size)
 		free(table);
 		return (NULL);
 	}
+
 	i = 0;
 	while (i < size)
 	{
 		table->array[i] = NULL;
+		i++;
 	}
 
 	table->size = size;
