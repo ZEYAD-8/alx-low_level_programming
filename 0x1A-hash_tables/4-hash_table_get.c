@@ -1,8 +1,3 @@
-/*
- * File: 4-hash_table_get.c
- * Author: KARIM
-*/
-
 #include "hash_tables.h"
 
 /**
