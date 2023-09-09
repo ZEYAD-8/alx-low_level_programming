@@ -1,48 +1,58 @@
-#include "hash_tables.h"
-/**
- * hash_table_set - Adds an element to the hash table
- * @ht: the hash table
- * @key: Key
- * @value: the node's vlaue
- *
- * Return: 1 if success, 0 otherwise
+/*
+ * File: 3-hash_table_set.c
+ * Author: KARIM
 */
 
+#include "hash_tables.h"
+
+/**
+ * Hash_table_set --- Add or update an element in a hash table.
+ * @ht: A pointer to the hash table.
+ * @key: The key to add - cannot be an empty string.
+ * @value: The value associated with key.
+ *
+ * Return: upon failure -- 0.
+ *         otherwise -- 1.
+ */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_node = NULL;
-	unsigned long int index = 0;
-	char *cpy_v = NULL;
-	char *cpy_k = NULL;
+	hash_node_t *new;
+	char *value_copy;
+	unsigned long int index, i;
 
-	if (ht == NULL || key == NULL)
+	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
 
-	new_node = malloc(sizeof(new_node));
-	if (new_node == NULL)
+	value_copy = strdup(value);
+	if (value_copy == NULL)
 		return (0);
-	cpy_k = (char *)malloc(strlen(key) + 1);
-	strcpy(cpy_k, key);
-	if (value != NULL)
-	{
-		cpy_v = (char *)malloc(strlen(value) + 1);
-		strcpy(cpy_v, value);
-	}
-	new_node->key = cpy_k;
-	new_node->value = cpy_v;
-	index = key_index((unsigned char *)cpy_k, ht->size);
 
-	if (ht->array == NULL)
+	index = key_index((const unsigned char *)key, ht->size);
+	for (i = index; ht->array[i]; i++)
+	{
+		if (strcmp(ht->array[i]->key, key) == 0)
+		{
+			free(ht->array[i]->value);
+			ht->array[i]->value = value_copy;
+			return (1);
+		}
+	}
+
+	new = malloc(sizeof(hash_node_t));
+	if (new == NULL)
+	{
+		free(value_copy);
 		return (0);
-	if (ht->array[index] == NULL)
-	{
-		ht->array[index] = new_node;
-		new_node->next = NULL;
 	}
-	else
+	new->key = strdup(key);
+	if (new->key == NULL)
 	{
-		new_node->next = ht->array[index];
-		ht->array[index] = new_node;
+		free(new);
+		return (0);
 	}
+	new->value = value_copy;
+	new->next = ht->array[index];
+	ht->array[index] = new;
+
 	return (1);
 }
