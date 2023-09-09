@@ -8,7 +8,6 @@
 /**
  * struct hash_node_s -- Node of a hash Table...
  * @key: The key, String.
- * Author : karim.
  * The key is unique in the HashTable.
  * @value: The value corresponding to a key.
  * @next: A pointer to the next node of the List.
