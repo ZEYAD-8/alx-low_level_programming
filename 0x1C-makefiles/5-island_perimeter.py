@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+    grid structures.
+"""
 def island_perimeter(grid):
     """
     Computes the perimeter of the island described in the grid.
@@ -37,3 +39,14 @@ def island_perimeter(grid):
                     edges += 1
 
     return edges
+
+
+if __name__ == "__main__":
+    grid = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 1],
+        [0, 1, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 1]
+    ]
+    print(island_perimeter(grid))
