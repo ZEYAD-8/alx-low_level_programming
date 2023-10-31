@@ -22,31 +22,24 @@ def island_perimeter(grid):
             if grid[row][unit] == 0:
                 continue
 
-            if not unit == 0:
-                if grid[row][unit - 1] == 0:
-                    edges += 1
+            if unit == 0:
+                edges += 1
+            elif grid[row][unit - 1] == 0:
+                edges += 1
 
-            if not unit == width - 1:
-                if grid[row][unit + 1] == 0:
-                    edges += 1
+            if unit == width - 1:
+                edges += 1
+            elif grid[row][unit + 1] == 0:
+                edges += 1
 
-            if not row == 0:
-                if grid[row - 1][unit] == 0:
-                    edges += 1
+            if row == 0:
+                edges += 1
+            elif grid[row - 1][unit] == 0:
+                edges += 1
 
-            if not row == height - 1:
-                if grid[row + 1][unit] == 0:
-                    edges += 1
+            if row == height - 1:
+                edges += 1
+            elif grid[row + 1][unit] == 0:
+                edges += 1
 
     return edges
-
-
-if __name__ == "__main__":
-    grid = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 1],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 1]
-    ]
-    print(island_perimeter(grid))
