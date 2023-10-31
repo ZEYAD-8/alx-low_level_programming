@@ -2,6 +2,8 @@
 """
     grid structures.
 """
+
+
 def island_perimeter(grid):
     """
     Computes the perimeter of the island described in the grid.
